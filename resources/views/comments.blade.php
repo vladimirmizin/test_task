@@ -1,16 +1,15 @@
 
 <div id="comments">
-    <h1>asdasd</h1>
         @if($comments)
             @foreach($comments as $comment)
                 <div class="card">
-                    <div class="card-body">
+                    <div class="card-body comment-body">
                         <div class="card-text">
                             {{$comment['comment']}}
                         </div>
                         <div class="card-subtitle"><p>{{$comment->author['name']}}</p></div>
-                        <button id="showbutton">Add Comment</button>
-                        <div class="showblock">
+                        <button class="showbutton">Add Comment</button>
+                        <div id="showblock">
                             <form class="submit_form">
                                 @csrf
                                 <div class="form-group" >

@@ -30,7 +30,7 @@
 </div>
 <script type="text/javascript">
     $(document).ready(function(){
-        $('.submit_form').on('submit', function(e){
+        $(document).on('submit','.submit_form', function(e){
             e.preventDefault();
             $.ajax({
                 type: 'POST',
@@ -39,11 +39,13 @@
                 success: function(result){
                     $('#comment_body').val("")
                     $('#comments').html(result);
+
                 }
             });
         });
-        $('#showbutton').on('click', function () {
-            $(this).siblings(".showblock").toggle("slow");
+        $(document).on('click',".showbutton", function () {
+            console.log('123');
+            $(this).siblings("#showblock").toggle("slow");
         });
     });
 </script>
