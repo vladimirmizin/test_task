@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Comment;
 
 class HomeController extends Controller
 {
@@ -23,6 +24,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $comments = Comment::with(['author', 'sub_comments'])->where('parent_id', 0)->get();
+        return view('home', compact('comments'));
     }
 }
